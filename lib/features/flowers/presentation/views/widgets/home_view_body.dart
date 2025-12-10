@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taske2/cores/widgets/custom_lock.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -14,7 +15,7 @@ class HomeViewBody extends StatelessWidget {
             height: 130,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(40),
             ),
             child: Row(
               children: [
@@ -71,6 +72,24 @@ class HomeViewBody extends StatelessWidget {
                       ],
                     ),
                   ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 62.5),
+                  child: CustomPaint(
+                    child: SizedBox(
+                      width: 60,
+                      height: 24,
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Icon(size: 15, Icons.shopping_bag_rounded),
+                        ),
+                      ),
+                    ),
+                    size: Size(60, 24),
+                    painter: SmoothCapsulePainter(),
+                  ),
                 ),
               ],
             ),
