@@ -27,7 +27,10 @@ class HomeView extends StatelessWidget {
         actions: [
           Padding(
             padding: EdgeInsets.only(right: 35),
-            child: Icon(Icons.dehaze, color: Color(0xff90d986), size: 30),
+            child: Image(
+              width: 40,
+              image: AssetImage("lib/cores/assets/images/setting.png"),
+            ),
           ),
         ],
       ),
