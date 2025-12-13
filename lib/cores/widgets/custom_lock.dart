@@ -1,70 +1,39 @@
 import 'package:flutter/material.dart';
 
-class BottomNavPainter extends CustomPainter {
+class CustomNotch extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = Colors.white
-      ..style = PaintingStyle.fill;
-
+    canvas.translate(0, size.height * 0.35);
     final path = Path();
-
-    // Start left inward
-    path.moveTo(0, size.height * .55);
+    path.moveTo(size.width / 3, size.height / 2);
     path.quadraticBezierTo(
-      size.width * 0.10,
-      size.height * 0.10,
-      size.width * -0.3,
-      size.height,
-    );
-    // Left curve
-    path.quadraticBezierTo(
-      size.width * 0.10,
-      size.height * 0.10,
-      size.width * 0.25,
-      size.height * 0.15,
+      size.width * .5,
+      size.height * .2,
+      2 * size.width / 3,
+      size.height / 2,
     );
 
-    // Before center bump
     path.quadraticBezierTo(
-      size.width * 0.40,
-      size.height * 0.20,
-      size.width * 0.46,
-      size.height * 0.55,
+      3 * size.width / 4,
+      size.height * .6,
+      4 * size.width / 5,
+      5 * size.height / 8,
     );
-
-    // Center bump
+    path.lineTo(size.width / 3, size.height / 2);
     path.quadraticBezierTo(
-      size.width * 0.50,
-      size.height * 1.00,
-      size.width * 0.54,
-      size.height * 0.55,
+      size.width * .25,
+      size.height * .6,
+      size.width / 5,
+      5 * size.height / 8,
     );
-
-    // After bump
-    path.quadraticBezierTo(
-      size.width * 0.60,
-      size.height * 0.20,
-      size.width * 0.75,
-      size.height * 0.15,
-    );
-
-    // Right curve
-    path.quadraticBezierTo(
-      size.width * 0.90,
-      size.height * 0.10,
-      size.width,
-      size.height * 0.55,
-    );
-
-    // Close bottom
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height);
-    path.close();
-
+    path.lineTo(4 * size.width / 5, 5 * size.height / 8);
+    //path.close();
+    final paint = Paint()..color = Colors.white;
     canvas.drawPath(path, paint);
   }
 
   @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return false;
+  }
 }

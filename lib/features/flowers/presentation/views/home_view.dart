@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:taske2/cores/widgets/custom_hole.dart';
+import 'package:taske2/cores/widgets/custom_lock.dart';
 import 'package:taske2/features/flowers/presentation/views/widgets/home_view_body.dart';
 
 class HomeView extends StatelessWidget {
@@ -6,6 +8,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final w = MediaQuery.of(context).size.width;
+    final h = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff166a0a),
@@ -35,7 +39,14 @@ class HomeView extends StatelessWidget {
         ],
       ),
       backgroundColor: Color(0xff166a0a),
-      body: HomeViewBody(),
+      body: Stack(
+        children: [
+          // GREEN BACKGROUND
+          SafeArea(bottom: true, top: true, child: HomeViewBody()),
+
+          // LEFT SHAPE
+        ],
+      ),
     );
   }
 }

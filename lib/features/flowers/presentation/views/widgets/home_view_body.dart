@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taske2/cores/widgets/custom_bag.dart';
+import 'package:taske2/cores/widgets/custom_hill.dart';
 import 'package:taske2/cores/widgets/custom_lock.dart';
 import 'package:taske2/features/flowers/data/models/card_model.dart';
 import 'package:taske2/features/flowers/presentation/views/widgets/custom_card.dart';
@@ -14,6 +15,7 @@ class HomeViewBody extends StatefulWidget {
 class _HomeViewBodyState extends State<HomeViewBody> {
   @override
   bool isPressed = false;
+  @override
   Widget build(BuildContext context) {
     List<CardModel> cardsList = [
       CardModel(
@@ -47,59 +49,69 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         true,
       ),
     ];
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.only(top: 5),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Expanded(
-              child: Center(
-                child: ListView.builder(
-                  itemCount: cardsList.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(bottom: 30),
-                      child: customCard(
-                        onTap: () {
-                          setState(() {
-                            isPressed = !isPressed;
-                          });
-                        },
-                        cardModel: cardsList[index],
-                      ),
-                    );
-                  },
-                ),
-              ),
+    return Stack(
+      children: [
+        customHill(icon: Icons.shopping_bag),
+        Positioned(
+          right: 229,
+          top: 610,
+          child: Transform.rotate(
+            angle: 90 * 3.1415926535 / 180,
+            child: customHill(
+              iconColor: Colors.grey,
+              iconSize: 45,
+              hieght: 200,
+              width: 170,
+              icon: Icons.keyboard_arrow_down_rounded,
             ),
-
-            Row(children: [Spacer()]),
-
-            // SizedBox(height: 80),
-            SizedBox(
-              width: 59,
-              height: 49,
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  CustomPaint(size: Size(130, 53), painter: BottomNavPainter()),
-
-                  Container(
-                    width: 53,
-                    height: 53,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Icon(Icons.lock, size: 23),
-                  ),
-                ],
-              ),
-            ),
-          ],
+          ),
         ),
-      ),
+        Positioned(
+          left: 229,
+          top: 610,
+          child: Transform.rotate(
+            angle: -90 * 3.1415926535 / 180,
+            child: customHill(
+              iconSize: 45,
+              hieght: 200,
+              width: 170,
+              icon: Icons.keyboard_arrow_down_rounded,
+            ),
+          ),
+        ),
+        Center(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 5),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Center(
+                    child: ListView.builder(
+                      itemCount: cardsList.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 30),
+                          child: customCard(
+                            onTap: () {
+                              setState(() {
+                                isPressed = !isPressed;
+                              });
+                            },
+                            cardModel: cardsList[index],
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+
+                Row(children: [Spacer()]),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

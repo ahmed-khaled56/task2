@@ -19,6 +19,7 @@ class customCard extends StatefulWidget {
 class _customCardState extends State<customCard> {
   @override
   bool isPressed = false;
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
