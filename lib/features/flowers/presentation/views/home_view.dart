@@ -42,7 +42,7 @@ class HomeView extends StatelessWidget {
       body: Stack(
         children: [
           // GREEN BACKGROUND
-          SafeArea(bottom: true, top: true, child: HomeViewBody()),
+          HomeViewBody(),
 
           // LEFT SHAPE
         ],

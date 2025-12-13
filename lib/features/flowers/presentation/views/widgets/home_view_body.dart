@@ -3,6 +3,7 @@ import 'package:taske2/cores/widgets/custom_bag.dart';
 import 'package:taske2/cores/widgets/custom_hill.dart';
 import 'package:taske2/cores/widgets/custom_lock.dart';
 import 'package:taske2/features/flowers/data/models/card_model.dart';
+import 'package:taske2/features/flowers/presentation/views/details_screen.dart';
 import 'package:taske2/features/flowers/presentation/views/widgets/custom_card.dart';
 
 class HomeViewBody extends StatefulWidget {
@@ -51,7 +52,6 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     ];
     return Stack(
       children: [
-        customHill(icon: Icons.shopping_bag),
         Positioned(
           right: 229,
           top: 610,
@@ -92,25 +92,19 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.only(bottom: 30),
-                          child: customCard(
-                            onTap: () {
-                              setState(() {
-                                isPressed = !isPressed;
-                              });
-                            },
-                            cardModel: cardsList[index],
-                          ),
+                          child: customCard(cardModel: cardsList[index]),
                         );
                       },
                     ),
                   ),
                 ),
 
-                Row(children: [Spacer()]),
+                //Row(children: [Spacer()]),
               ],
             ),
           ),
         ),
+        customHill(icon: Icons.shopping_bag),
       ],
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:taske2/cores/widgets/custom_bag.dart';
 import 'package:taske2/features/flowers/data/models/card_model.dart';
+import 'package:taske2/features/flowers/presentation/views/details_screen.dart';
 
 class customCard extends StatefulWidget {
   customCard({
@@ -23,10 +24,20 @@ class _customCardState extends State<customCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        setState(() {
-          isPressed = !isPressed;
-        });
+        if (!isPressed) {
+          setState(() {
+            isPressed = true;
+          });
+        } else {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => DetailsScreen(cardModel: widget.cardModel),
+            ),
+          );
+        }
       },
+
       child: Padding(
         padding: EdgeInsets.only(
           bottom: isPressed ? 100 : 10,
