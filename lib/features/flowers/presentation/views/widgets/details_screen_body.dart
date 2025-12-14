@@ -3,6 +3,7 @@ import 'package:taske2/cores/widgets/custom_hill.dart';
 import 'package:taske2/features/flowers/data/models/card_model.dart';
 import 'package:taske2/features/flowers/presentation/views/widgets/custom_number.dart';
 import 'package:taske2/features/flowers/presentation/views/widgets/custom_scend_number.dart';
+import 'package:taske2/features/fruits/presentations/views/home2_view.dart';
 
 class DetailsScreenBody extends StatelessWidget {
   const DetailsScreenBody({super.key, required this.cardModel});
@@ -124,7 +125,15 @@ class DetailsScreenBody extends StatelessWidget {
             child: CustomPaint(painter: CustomNumber()),
           ),
         ),
-        customHill(icon: Icons.shopping_bag),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Home2View()),
+            );
+          },
+          child: customHill(icon: Icons.shopping_bag),
+        ),
         Positioned(
           right: 229,
           top: 680,
