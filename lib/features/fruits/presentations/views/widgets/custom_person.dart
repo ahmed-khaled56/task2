@@ -12,7 +12,7 @@ class customPerson extends StatelessWidget {
         padding: const EdgeInsets.all(1),
         decoration: const BoxDecoration(
           shape: BoxShape.circle,
-          color: Color.fromARGB(255, 192, 206, 177),
+          color: Color.fromARGB(255, 240, 237, 210),
         ),
         child: CircleAvatar(
           radius: 100,
@@ -21,7 +21,7 @@ class customPerson extends StatelessWidget {
             padding: const EdgeInsets.all(1),
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
-              color: Color.fromARGB(255, 173, 209, 132),
+              color: Color.fromARGB(255, 237, 230, 171),
             ),
             child: CircleAvatar(
               radius: 60,

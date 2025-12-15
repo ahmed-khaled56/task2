@@ -75,7 +75,7 @@ class Details2ViewBody extends StatelessWidget {
 
         Positioned(
           top: 665,
-          left: 30,
+          left: 25,
           child: CircleAvatar(
             radius: 6,
             backgroundColor: const Color.fromARGB(255, 197, 233, 155),
@@ -88,11 +88,11 @@ class Details2ViewBody extends StatelessWidget {
             children: [
               Text(
                 "SELECT",
-                style: TextStyle(fontSize: 15, color: Colors.white60),
+                style: TextStyle(fontSize: 15, color: Colors.white),
               ),
               Text(
                 "QUNTITY",
-                style: TextStyle(fontSize: 18, color: Colors.white60),
+                style: TextStyle(fontSize: 18, color: Colors.white),
               ),
             ],
           ),
@@ -151,7 +151,7 @@ class Details2ViewBody extends StatelessWidget {
               style: TextStyle(fontSize: 20, color: Colors.black),
             ),
             radius: 24,
-            backgroundColor: Colors.grey,
+            backgroundColor: const Color.fromARGB(255, 91, 90, 90),
           ),
         ),
         Positioned(
@@ -169,7 +169,7 @@ class Details2ViewBody extends StatelessWidget {
               ],
             ),
             radius: 24,
-            backgroundColor: Colors.grey,
+            backgroundColor: Color.fromARGB(255, 91, 90, 90),
           ),
         ),
         Positioned(
