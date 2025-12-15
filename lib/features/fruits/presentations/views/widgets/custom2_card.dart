@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taske2/features/fruits/presentations/views/widgets/details2_view_body.dart';
 
 class custom2Card extends StatelessWidget {
   final String name;
@@ -16,23 +17,7 @@ class custom2Card extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(name, style: TextStyle(fontSize: 20, color: Colors.white)),
-            Row(
-              children: [
-                Text(
-                  "Premium ",
-
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Color.fromARGB(255, 197, 233, 155),
-                  ),
-                ),
-
-                Image(
-                  color: Color.fromARGB(255, 197, 233, 155),
-                  image: AssetImage("lib/cores/assets/images/crown.png"),
-                ),
-              ],
-            ),
+            CustomPremium(),
             Text(price, style: TextStyle(fontSize: 20, color: Colors.white)),
           ],
         ),

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:taske2/features/fruits/presentations/views/details2_view.dart';
 import 'package:taske2/features/fruits/presentations/views/widgets/custom2_card.dart';
 import 'package:taske2/features/fruits/presentations/views/widgets/customRow.dart';
 import 'package:taske2/features/fruits/presentations/views/widgets/custom_bottom_bar.dart';
@@ -15,6 +16,13 @@ class Home2ViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
+        Image(
+          fit: BoxFit.cover,
+
+          width: double.infinity,
+          height: MediaQuery.sizeOf(context).height,
+          image: AssetImage("lib/cores/assets/images/back1.png"),
+        ),
         Positioned(top: 70, left: 270, child: customNote()),
 
         Positioned(top: 40, left: 295, child: customBag()),
@@ -33,7 +41,15 @@ class Home2ViewBody extends StatelessWidget {
         Positioned(
           top: 400,
           left: 50,
-          child: custom2Card(name: "Pitaya", price: "£4.95"),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Details2View()),
+              );
+            },
+            child: custom2Card(name: "Pitaya", price: "£4.95"),
+          ),
         ),
         Positioned(
           top: 520,
@@ -53,10 +69,18 @@ class Home2ViewBody extends StatelessWidget {
         Positioned(
           top: 270,
           left: 20,
-          child: Image(
-            width: 220,
-            height: 220,
-            image: AssetImage("lib/cores/assets/images/dragonfruit.png"),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Details2View()),
+              );
+            },
+            child: Image(
+              width: 220,
+              height: 220,
+              image: AssetImage("lib/cores/assets/images/dragonfruit.png"),
+            ),
           ),
         ),
         Positioned(
